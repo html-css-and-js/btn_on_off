@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>btn_on_off</title>
+    <style>
+        .container {
+            display: flex;
+            align-items: center;
+            border: 1px solid black;
+            width: 100px;
+            height: 25px;
+            border-radius: 12px;
+            background-color: red;
+            box-shadow: 0 1px 7px 2px rgb(34 60 80 / 51%) inset;
+        }
+        .container .btn{
+            border: 1px solid black;
+            animation-iteration-count: 1;
+            animation-fill-mode: forwards;
+            width: 50%;
+            height: 90%;
+            border-radius: 10px;
+        }
+        @keyframes on-off {
+            from{
+                margin-left: 0;
+            }
+            to {
+                margin-left: 50%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <input class="btn" type="button">
+    </div>
+    <script>
+        let btn = document.querySelector('.btn')
+        let container = document.querySelector('.container')
+        let boolean = false
+        btn.addEventListener('click', function (){
+            if (!boolean){
+                btn.style.animationName = 'on-off'
+                container.style.backgroundColor = 'green'
+                boolean = !boolean
+            }else {
+                btn.style.animationDirection = 'reverse'
+                btn.style = null
+                container.style.backgroundColor = 'red'
+                boolean = !boolean
+            }
+        })
+    </script>
+</body>
+</html>
